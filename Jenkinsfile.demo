@@ -62,7 +62,7 @@ node {
         filename: 'marathon.json',
         appid: 'jenkins-deployed-app',
         docker: "mesosphere/cd-demo-app:${gitCommit()}".toString(),
-        labels: ['lastChangedBy': "${gitEmail()}".toString()]
+        labels: [[name: 'lastChangedBy', value: "${gitEmail()}".toString()]]
     )
 
 
