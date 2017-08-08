@@ -148,10 +148,13 @@ def install_jenkins(jenkins_name, jenkins_url):
 
 def verify_jenkins(jenkins_url):
     try:
-        r = http.get(jenkins_url)
-        if r.status_code == 200 and r.headers['x-jenkins']:
-            log("service is up and running, got Jenkins version '{}'".format(r.headers['x-jenkins']))
-            return True
+        r = http.get('{}/api/json'.format(jenkins_url))
+        data = r.json()
+        if data['mode'] == 'NORMAL':
+            r = http.get(jenkins_url)
+            if r.status_code == 200 and r.headers['x-jenkins']:
+                log("service is up and running, got Jenkins version '{}'".format(r.headers['x-jenkins']))
+                return True
     except:
         return False
 
