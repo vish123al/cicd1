@@ -1,0 +1,53 @@
+{
+    "id": "/jenkins-deployed-app",
+    "backoffFactor": 1.15,
+    "backoffSeconds": 1,
+    "container": {
+        "type": "DOCKER",
+        "volumes": [],
+        "docker": {
+            "image": "mesosphere/cd-demo-app:latest",
+            "forcePullImage": false,
+            "privileged": false,
+            "parameters": []
+        },
+        "portMappings": [{
+            "containerPort": 4000,
+            "hostPort": 0,
+            "name": "jenkins-deployed-app",
+            "protocol": "tcp"
+        }]
+    },
+    "cpus": 0.1,
+    "disk": 0,
+    "instances": 1,
+    "networks": [{
+        "mode": "container/bridge"
+    }],
+    "requirePorts": false,
+    "labels": {
+        "HAPROXY_0_VHOST": "35.165.94.21",
+        "HAPROXY_GROUP": "external",
+        "lastChangedBy": "velocity-team@mesosphere.io"
+    },
+    "maxLaunchDelaySeconds": 3600,
+    "mem": 128,
+    "gpus": 0,
+    "upgradeStrategy": {
+        "maximumOverCapacity": 1,
+        "minimumHealthCapacity": 1
+    },
+    "killSelection": "YOUNGEST_FIRST",
+    "unreachableStrategy": {
+        "inactiveAfterSeconds": 300,
+        "expungeAfterSeconds": 600
+    },
+    "healthChecks": [{
+        "portIndex": 0,
+        "protocol": "MESOS_HTTP",
+        "path": "/"
+    }],
+    "fetch": [],
+    "constraints": [],
+    "cmd": "jekyll serve"
+}
