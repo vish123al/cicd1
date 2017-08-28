@@ -59,7 +59,7 @@ node {
         url: 'http://marathon.mesos:8080',
         forceUpdate: false,
         credentialsId: 'dcos-token',
-        filename: 'marathon.json',
+        filename: 'conf/cd-demo-app.json',
         appid: 'jenkins-deployed-app',
         docker: "mesosphere/cd-demo-app:${gitCommit()}".toString(),
         labels: ['lastChangedBy': "${gitEmail()}".toString()]
