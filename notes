@@ -1,0 +1,2 @@
+python3 bin/demo.py install https://rgupta-fm-elasticl-dqovlaav4k3r-1363360417.us-west-2.elb.amazonaws.com
+python3 bin/demo.py pipeline  --password=$PASSWORD http://rgupta-fm-publicsl-wupbx6m3dezk-5851628.us-west-2.elb.amazonaws.com/ https://rgupta-fm-elasticl-dqovlaav4k3r-1363360417.us-west-2.elb.amazonaws.com/
