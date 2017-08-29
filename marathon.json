@@ -1,5 +1,5 @@
 {
-  "id": "cd-demo-app",
+  "id": "cicd1",
   "container": {
     "type": "DOCKER",
     "docker": {
